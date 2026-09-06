@@ -1,12 +1,23 @@
+import os
+
 from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    MessageHandler,
+    ContextTypes,
+    filters,
+)
 
 
 # =========================
 # التوكن
 # =========================
 
-TOKEN = "8841853429:AAFEEHpauM_euSOoGRpByfX-9isv1Sj75wg"
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    raise ValueError("TOKEN غير موجود في Environment Variables")
 
 
 # =========================
